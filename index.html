@@ -1,0 +1,115 @@
+<html>
+
+<head>
+	<title>Rating App by pratham</title>
+	<style>
+		*{font-size: 50px;}
+		body{background-color: Azure;} 
+	</style>
+
+
+
+
+</head>
+
+
+<body>
+<center>
+	<h1>Rating App </h1>
+	<form onsubmit = "Find()">
+	<input type ="number"  step="any" placeholder="Enter rating between 1 to 5 " id="rating" />
+	</br> </br>
+	<input type ="submit" value="M1" class="btn"/>
+	<input type ="submit" value="M2" class="btn"/>
+	<input type ="submit" value="M3" class="btn"/>
+
+	</form>
+	<h2 id = "msg"> </h2>
+
+	<script>
+	function Find()
+	{
+	event.preventDefault();
+	let rating = document.getElementById("rating");
+	let msg = document.getElementById("msg");
+
+	if(rating.value=="")
+	{
+		alert("You havent entered rating.");
+		msg.innerHTML="";
+		rating.focus();
+		return;
+
+	}	
+
+	let ele = document.activeElement.value;
+	let ans ="";
+	let r = parseInt(rating.value);
+
+	if((r<1) || (r>5))
+	{
+		alert("rate between 1 to 5");
+		rating.value="";
+		msg.innerHTML="";
+		rating.focus();
+		return;
+	}
+	if(ele =="M1")
+	{
+		if(r==1)  ans ="Poor";
+		if(r==2)  ans ="ok";
+		if(r==3)  ans ="ok";
+		if(r==4)  ans ="wow";
+		if(r==5)  ans ="wow";
+		msg.innerHTML="M1----> " +ans;
+
+	
+	}
+	else if(ele=="M2")
+	{
+		if(r==1) ans ="Poor";
+		else if((r==2) || (r==3))  ans ="Ok";
+		else if ((r==4) ||(r==5)) ans ="WOW";
+		msg.innerHTML="M2----> " + ans;
+
+	}
+	else if (ele=="M3")
+	{
+		switch(r)
+		{
+			case 1: ans ="Poor"; break;
+			case 2: ans ="Ok"; break;
+			case 3: ans ="Ok"; break;
+			case 4: ans ="Wow"; break;
+			case 5: ans ="Wow"; break;
+
+
+
+		}
+		msg.innerHTML="M3----> " +ans;
+
+
+
+	}
+
+
+
+	}
+	</script>
+	
+
+
+
+
+
+</center>
+
+
+
+
+
+
+</body>
+
+</html>
+
